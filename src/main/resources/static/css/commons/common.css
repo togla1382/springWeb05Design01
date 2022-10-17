@@ -1,0 +1,14 @@
+@charset "UTF-8";
+
+.flex{display: flex;}
+.row{flex-direction: row;}
+.column{flex-direction: column;}
+.center{justify-content: center;}
+.between{justify-content: space-between;}
+.around{justify-content: space-around;}
+
+
+.view-size{
+	width: 1200px;
+	margin: 0 auto;
+}

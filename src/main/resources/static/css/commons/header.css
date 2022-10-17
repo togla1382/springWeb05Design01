@@ -1,0 +1,30 @@
+@charset "UTF-8";
+/* 공백 : 하위 모든자식 요소 */
+/* > : 하위 직계자식 요소 */
+/* html body header>.wrap #menu-top{} */
+
+
+
+/* 메뉴상단 CSS*/
+#menu-top{
+	font-size: 12px;
+	margin-top: 20px;
+}
+
+/* ul의 첫번째 자식요소 하위의 a */
+#snb>.wrap ul li:first-child a{
+	padding-left: 0;
+}
+
+#snb>.wrap ul li a{
+	padding: 0 10px;
+}
+
+#unb>.wrap ul li:last-child a{
+	padding-right: 0;
+}
+
+#unb>.wrap ul li a{
+	padding: 0 10px;
+}
+
