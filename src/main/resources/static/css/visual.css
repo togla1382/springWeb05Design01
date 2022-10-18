@@ -1,0 +1,29 @@
+@charset "UTF-8";
+
+#visual>.wrap>.area{
+	width: 815px;
+	height: 363px;
+	margin: 0 auto;
+	background-color: rgba(255,255,0, 0.5);
+	overflow: hidden;
+}
+/* 
+#visual>.wrap>.area ol{
+	margin-left: calc( -415px * 4 );
+}
+ */
+#visual>.wrap>.area ol li{
+	margin-right: 15px;
+}
+#visual>.wrap>.area ol li a{
+	display: block;
+	width: 400px;
+	height: 363px;
+	text-align: center;
+	line-height: 363px;
+	font-size: 50px;
+	background-color: rgba(0,0,255, 0.5);
+	background-repeat: no-repeat;
+	background-size: cover;
+	background-position: center;
+}

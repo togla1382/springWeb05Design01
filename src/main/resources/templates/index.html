@@ -1,11 +1,14 @@
 <!DOCTYPE html>
-<html>
+<html xmlns:th="http://www.thymeleaf.org">
 	<head>
 		<meta charset="UTF-8">
 		<title>Insert title here</title>
 		<link rel="stylesheet" href="/css/commons/reset.css">
 		<link rel="stylesheet" href="/css/commons/common.css">
 		<link rel="stylesheet" href="/css/commons/header.css">
+		<link rel="stylesheet" href="/css/visual.css">
+		<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
+		<script src="/js/visual.js"></script>
 	</head>
 	<body>
 		<!-- /////////////////////////////////////////////////// -->
@@ -121,6 +124,21 @@
 				</nav>
 			</div>
 		</header>
+		<!-- /////////////////////////////////////////////////// -->
+		<!-- ///////visual  ////////////////////////////////////// -->
+		<!-- /////////////////////////////////////////////////// -->
+		<section id="visual">
+			<h1>비주얼영역</h1>
+			<div class="wrap">
+				<div class="area">
+					<ol class="flex visuals">
+						<li th:each="num : ${#numbers.sequence(1,15)}">
+							<a href="#" th:style="|background-image: url('/images/visual/visual${num}.jpg');|">[[${num}]]</a>
+						</li>
+					</ol>
+				</div>
+			</div>
+		</section>
 		<!-- /////////////////////////////////////////////////// -->
 		<!-- ///////main  ////////////////////////////////////// -->
 		<!-- /////////////////////////////////////////////////// -->
