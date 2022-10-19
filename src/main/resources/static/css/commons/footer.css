@@ -1,0 +1,16 @@
+@charset "UTF-8";
+
+#f-menu{
+	border: 1px solid #a9a9a9; 
+	border-left: none;
+	border-right: none; 
+}
+#f-menu>.wrap>ul{
+	padding: 1.5em 0;
+}
+#f-menu>.wrap>ul>li{margin-right: 40px;}
+
+#f-menu>.wrap>ul>li.privacy a{
+	/* color: rgba(255,255,0, 1); */
+	color: #5b8145;
+}
