@@ -34,31 +34,39 @@
 	position: absolute;
 	top: 0;
 	height: 363px;
-	width: 3000px;
+	width: 50vw;
 	background-color: rgba(255,255,255, 0.75);
 	
 }
 #visual>.wrap>.area .cover .left{
-	left:-3000px;
+	left: -50vw;
 }
 #visual>.wrap>.area .cover .right{
 	left: 815px;
 }
-#visual>.wrap>.area .btn button{
+#visual>.wrap>.area .btn-wrap .btn{
 	position: absolute;
 	z-index: 100;
 	top: calc(50% - 25px);
-	opacity: 50%;
-}
-#visual>.wrap>.area .btn .prev{
-	left: -25px;
-}
-#visual>.wrap>.area .btn .next{
-	right: -25px;
-}
-#visual>.wrap>.area .btn button img{
+	opacity: 15%;
 	width: 50px;
+	height: 50px;
+	border-radius: 50%;
+	font-size: 0;
+	background-size: cover;
+	background-repeat: no-repeat;
+	background-position: center;
+	box-shadow: 0 0 20px rgb(255, 255, 185);
 }
+#visual>.wrap>.area .btn-wrap .prev{
+	left: -25px;
+	background-image: url("/images/icon/circle-chevron-left-solid.svg");
+}
+#visual>.wrap>.area .btn-wrap .next{
+	right: -25px;
+	background-image: url("/images/icon/circle-chevron-right-solid.svg");
+}
+
 
 
 

@@ -9,17 +9,21 @@ var basePos=marginLeft*6;
 var speed=1000;
 var timmer=3000;
 var myTimeout;
+var flag=false;
 //ready()
 $(function(){
 	$(".visuals").css("margin-left", -basePos);
 	start();
 	
-	$(".visuals").hover(function(){
-		stop();
-	},function(){
-		start();
+	$(".visuals, .btn").hover(stop, start);
+	$(".btn").hover(function(){
+		$(this).css({"opacity": 1});
+	}, function(){
+		$(this).css({"opacity": .15});
 	});
 	
+	$(".next").click(move);
+	$(".prev").click(prev);
 });
 
 //브라우저의 화면이 보여지냐 숨겨지냐에 따라 실행되는 이벤트
@@ -46,9 +50,11 @@ function stop(){
 }
 
 function move(){
+	if(flag)return;//true(실행중) 이면 아래실행하지 않고 종료
+	flag=true;
 	var imgWrap=$(".visuals");
 	//marginLeft += size;
-	imgWrap.animate({marginLeft: -(marginLeft+basePos)},speed, function(){
+	imgWrap.animate({marginLeft: -basePos-marginLeft},speed, function(){
 		var lis=$("ol.visuals li");
 		//var lastLi=lis.last();
 		//var firstLi=lis.first();
@@ -56,6 +62,22 @@ function move(){
 		//첫번째 li태그가 마지막 li태그뒤로 이동
 		lis.last().after(lis.first());
 		imgWrap.css("margin-left", -basePos);
+		flag=false;
 	});
+}
+
+function prev(){
+	if(flag)return;//true(실행중) 이면 아래실행하지 않고 종료
+	flag=true;
+	var imgWrap=$(".visuals");
+	imgWrap.animate({marginLeft: -basePos+marginLeft},speed,function(){
+		//이미지 이동
+		var lis=$("ol.visuals li");
+		//첫번째 li태그가 마지막 li태그뒤로 이동
+		lis.first().before(lis.last());
+		imgWrap.css("margin-left", -basePos);
+		flag=false;
+	});
+	
 }
 
