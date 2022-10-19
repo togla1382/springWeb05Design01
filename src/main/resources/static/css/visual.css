@@ -8,6 +8,7 @@
 	height: 363px;
 	margin: 0 auto;
 	overflow: visible;
+	position: relative;
 }
 /* 
 #visual>.wrap>.area ol{
@@ -29,20 +30,35 @@
 	background-position: center;
 }
 
-#visual>.wrap>.cover{
-	position:absolute;
-	top:0;
-	left:0;
-	display: grid;
-  	grid-template-columns: auto 815px auto;
-	width: 100%;
+#visual>.wrap>.area .cover .side{
+	position: absolute;
+	top: 0;
 	height: 363px;
-}
-#visual>.wrap>.cover>.side{
+	width: 3000px;
 	background-color: rgba(255,255,255, 0.75);
-	height:100%;
+	
 }
-#visual>.wrap>.cover>.center{
-	height:100%;
-	background-color: transparent;
+#visual>.wrap>.area .cover .left{
+	left:-3000px;
 }
+#visual>.wrap>.area .cover .right{
+	left: 815px;
+}
+#visual>.wrap>.area .btn button{
+	position: absolute;
+	z-index: 100;
+	top: calc(50% - 25px);
+	opacity: 50%;
+}
+#visual>.wrap>.area .btn .prev{
+	left: -25px;
+}
+#visual>.wrap>.area .btn .next{
+	right: -25px;
+}
+#visual>.wrap>.area .btn button img{
+	width: 50px;
+}
+
+
+

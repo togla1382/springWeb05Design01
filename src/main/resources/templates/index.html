@@ -7,6 +7,7 @@
 		<link rel="stylesheet" href="/css/commons/common.css">
 		<link rel="stylesheet" href="/css/commons/header.css">
 		<link rel="stylesheet" href="/css/visual.css">
+		
 		<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
 		<script src="/js/visual.js"></script>
 	</head>
@@ -193,12 +194,16 @@
 							<a href="#" th:style="|background-image: url('/images/visual/visual${num}.jpg');|">[[${num}]]</a>
 						</li>
 					</ol>
+					<div class="cover">
+						<div class="side left"></div>
+						<div class="side right"></div>
+					</div>
+					<div class="btn">
+						<button class="prev"><img alt="btn-prev" src="/images/icon/circle-chevron-left-solid.svg"></button>
+						<button class="next"><img alt="btn-next" src="/images/icon/circle-chevron-right-solid.svg"></button>
+					</div>
 				</div>
-				<div class="cover">
-					<div class="side"></div>
-					<div class="center"></div>
-					<div class="side"></div>
-				</div>
+				
 			</div>
 		</section>
 		<!-- /////////////////////////////////////////////////// -->

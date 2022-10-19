@@ -14,7 +14,7 @@ $(function(){
 	$(".visuals").css("margin-left", -basePos);
 	start();
 	
-	$(".cover .center").hover(function(){
+	$(".visuals").hover(function(){
 		stop();
 	},function(){
 		start();
