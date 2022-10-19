@@ -69,11 +69,11 @@
 							<h1>로고</h1>
 							<div class="wrap">
 								<a href="/">
-									<span>G</span><!-- 
-									 --><span>R</span><!-- 
-									 --><span>E</span><!-- 
-									 --><span>E</span><!-- 
-									 --><span>N</span>
+									<span>G</span>
+									<span>R</span>
+									<span>E</span>
+									<span>E</span>
+									<span>N</span>
 								</a>
 							</div>
 						</section>
@@ -100,7 +100,7 @@
 					<h1>메인메뉴</h1>
 					<div class="wrap">
 						<ul class="flex">
-							<li >
+							<li class="gnb">
 								<a href="#" class="flex">
 									<span class="gnb-icon">
 										<i></i>
@@ -109,6 +109,63 @@
 									</span>
 									<span>전체상품보기</span>
 								</a>
+								<div class="sub">
+									<ol>
+										<li>
+											<a href="#">
+												<span>서브1</span>
+											</a>
+											<ul class="sub-sub">
+												<li>
+													<a href="#">
+														<span>서브1_1</span>
+													</a>
+												</li>
+												<li><a href="#"><span>서브1_2</span></a></li>
+												<li><a href="#"><span>서브1_3</span></a></li>
+												<li><a href="#"><span>서브1_4</span></a></li>
+											</ul>
+										</li>
+										<li>
+											<a href="#">
+												<span>서브2</span>
+											</a>
+											<ul class="sub-sub">
+												<li>
+													<a href="#">
+														<span>서브2_1</span>
+													</a>
+												</li>
+												<li><a href="#"><span>서브2_2</span></a></li>
+												<li><a href="#"><span>서브2_3</span></a></li>
+											</ul>
+										</li>
+										<li>
+											<a href="#">
+												<span>서브3</span>
+											</a>
+											<ul class="sub-sub">
+												<li>
+													<a href="#">
+														<span>서브3_1</span>
+													</a>
+												</li>
+												<li><a href="#"><span>서브3_2</span></a></li>
+												<li><a href="#"><span>서브3_3</span></a></li>
+											</ul>
+										</li>
+										<li>
+											<a href="#">
+												<span>서브4</span>
+											</a>
+											<ul class="sub-sub">
+												<li><a href="#"><span>서브4_1</span></a></li>
+												<li><a href="#"><span>서브4_2</span></a></li>
+												<li><a href="#"><span>서브4_3</span></a></li>
+											</ul>
+										</li>
+									</ol>
+								</div>
 							</li>
 							<li><a href="#">오!감동</a></li>
 							<li><a href="#">인기추천</a></li>
@@ -136,6 +193,11 @@
 							<a href="#" th:style="|background-image: url('/images/visual/visual${num}.jpg');|">[[${num}]]</a>
 						</li>
 					</ol>
+				</div>
+				<div class="cover">
+					<div class="side"></div>
+					<div class="center"></div>
+					<div class="side"></div>
 				</div>
 			</div>
 		</section>

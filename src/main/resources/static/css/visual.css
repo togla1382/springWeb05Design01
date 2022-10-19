@@ -1,11 +1,13 @@
 @charset "UTF-8";
-
+#visual>.wrap{
+	position: relative;
+	overflow: hidden;
+}
 #visual>.wrap>.area{
 	width: 815px;
 	height: 363px;
 	margin: 0 auto;
-	background-color: rgba(255,255,0, 0.5);
-	overflow: hidden;
+	overflow: visible;
 }
 /* 
 #visual>.wrap>.area ol{
@@ -22,8 +24,25 @@
 	text-align: center;
 	line-height: 363px;
 	font-size: 50px;
-	background-color: rgba(0,0,255, 0.5);
 	background-repeat: no-repeat;
 	background-size: cover;
 	background-position: center;
+}
+
+#visual>.wrap>.cover{
+	position:absolute;
+	top:0;
+	left:0;
+	display: grid;
+  	grid-template-columns: auto 815px auto;
+	width: 100%;
+	height: 363px;
+}
+#visual>.wrap>.cover>.side{
+	background-color: rgba(255,255,255, 0.75);
+	height:100%;
+}
+#visual>.wrap>.cover>.center{
+	height:100%;
+	background-color: transparent;
 }
