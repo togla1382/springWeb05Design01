@@ -1,191 +1,18 @@
 <!DOCTYPE html>
-<html xmlns:th="http://www.thymeleaf.org">
-	<head>
-		<meta charset="UTF-8">
-		<title>Insert title here</title>
-		<link rel="stylesheet" href="/css/commons/reset.css">
-		<link rel="stylesheet" href="/css/commons/common.css">
-		<link rel="stylesheet" href="/css/commons/header.css">
-		<link rel="stylesheet" href="/css/commons/footer.css">
-		<link rel="stylesheet" href="/css/visual.css">
-		
-		<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
-		<script src="/js/visual.js"></script>
-	</head>
-	<body>
-		<!-- /////////////////////////////////////////////////// -->
-		<!-- ///////header////////////////////////////////////// -->
-		<!-- /////////////////////////////////////////////////// -->
-		<header>
-			<h1>상단영역</h1>
-			<div class="wrap view-size">
-				<!-- ///////메뉴상단////////////////////////////////////// -->
-				<nav id="menu-top">
-					<h1>메뉴상단</h1>
-					<div class="wrap flex between">
-						<section id="snb">
-							<h1>사이트메뉴</h1>
-							<div class="wrap">
-								<ul class="flex">
-									<li>
-										<a href="#">베스트후기</a>
-									</li>
-									<li>
-										<a href="#">고객센터</a>
-									</li>
-									<li>
-										<a class="btn-style1" href="#">이벤트/기획전</a>
-									</li>
-								</ul>
-							</div>
-						</section>
-						<section id="unb">
-							<h1>유저메뉴</h1>
-							<div class="wrap">
-								<ul class="flex">
-									<li>
-										<a href="#">로그인</a>
-									</li>
-									<li>
-										<a href="#">회원가입</a>
-									</li>
-									<li>
-										<a href="#">마이페이지</a>
-									</li>
-									<li>
-										<a href="#">주문/배송조회</a>
-									</li>
-									<li>
-										<a href="#">장바구니</a>
-									</li>
-								</ul>
-							</div>
-						</section>
-					</div>
-				</nav>
-				<!-- ///////로고&검색////////////////////////////////////// -->
-				<section id="logo-search">
-					<h1>로고&amp;검색</h1>
-					<div class="wrap flex between">
-						<section id="logo">
-							<h1>로고</h1>
-							<div class="wrap">
-								<a href="/">
-									<span>G</span>
-									<span>R</span>
-									<span>E</span>
-									<span>E</span>
-									<span>N</span>
-								</a>
-							</div>
-						</section>
-						<section id="search">
-							<h1>검색</h1>
-							<div class="wrap">
-								<form >
-									<input type="text" name="search" placeholder="바른먹거리를 찾으세요?">
-									<button></button>
-								</form>
-							</div>
-						</section>
-						<section id="delivery">
-							<h1>배송지</h1>
-							<div class="wrap">
-								<img alt="aaa" src="/images/icon/location-dot-solid.svg" width="10px">
-								<a  href="#">배송지정보를 입력해 주세요&gt;</a>
-							</div>
-						</section>
-					</div>
-				</section>
-				<!-- ///////메인메뉴////////////////////////////////////// -->
-				<nav id="nb">
-					<h1>메인메뉴</h1>
-					<div class="wrap">
-						<ul class="flex">
-							<li class="gnb">
-								<a href="#" class="flex">
-									<span class="gnb-icon">
-										<i></i>
-										<i></i>
-										<i></i>
-									</span>
-									<span>전체상품보기</span>
-								</a>
-								<div class="sub">
-									<ol>
-										<li>
-											<a href="#">
-												<span>서브1</span>
-											</a>
-											<ul class="sub-sub">
-												<li>
-													<a href="#">
-														<span>서브1_1</span>
-													</a>
-												</li>
-												<li><a href="#"><span>서브1_2</span></a></li>
-												<li><a href="#"><span>서브1_3</span></a></li>
-												<li><a href="#"><span>서브1_4</span></a></li>
-											</ul>
-										</li>
-										<li>
-											<a href="#">
-												<span>서브2</span>
-											</a>
-											<ul class="sub-sub">
-												<li>
-													<a href="#">
-														<span>서브2_1</span>
-													</a>
-												</li>
-												<li><a href="#"><span>서브2_2</span></a></li>
-												<li><a href="#"><span>서브2_3</span></a></li>
-											</ul>
-										</li>
-										<li>
-											<a href="#">
-												<span>서브3</span>
-											</a>
-											<ul class="sub-sub">
-												<li>
-													<a href="#">
-														<span>서브3_1</span>
-													</a>
-												</li>
-												<li><a href="#"><span>서브3_2</span></a></li>
-												<li><a href="#"><span>서브3_3</span></a></li>
-											</ul>
-										</li>
-										<li>
-											<a href="#">
-												<span>서브4</span>
-											</a>
-											<ul class="sub-sub">
-												<li><a href="#"><span>서브4_1</span></a></li>
-												<li><a href="#"><span>서브4_2</span></a></li>
-												<li><a href="#"><span>서브4_3</span></a></li>
-											</ul>
-										</li>
-									</ol>
-								</div>
-							</li>
-							<li><a href="#">오!감동</a></li>
-							<li><a href="#">인기추천</a></li>
-							<li><a href="#">오픈마켓</a></li>
-							<li><a href="#">브랜드몰</a></li>
-							<li><a href="#">소상공인</a></li>
-							<li><a href="#">희망장터</a></li>
-							<li><a href="#">찬들마루</a></li>
-							<li><a href="#">구독Run</a></li>
-							<li><a href="#">비디오쇼핑</a></li>
-						</ul>
-					</div>
-				</nav>
-			</div>
-		</header>
-		<!-- /////////////////////////////////////////////////// -->
-		<!-- ///////visual  ////////////////////////////////////// -->
-		<!-- /////////////////////////////////////////////////// -->
+<html xmlns:th="http://www.thymeleaf.org"  
+	th:replace="~{layout/layout02 :: default(~{::head} , ~{::main})}" >
+<!--/* th:replace="~{layout/layout02 :: 태그 or id or fragmentName}" */-->
+<head>
+	<link rel="stylesheet" href="/css/visual.css">
+	<link rel="stylesheet" href="/css/index.css">
+	<script src="/js/visual.js"></script>
+</head>
+<!-- /////////////////////////////////////////////////// -->
+<!-- ///////main  ////////////////////////////////////// -->
+<!-- /////////////////////////////////////////////////// -->
+<main>
+	<h1>메인컨텐츠</h1>
+	<div class="wrap view-size">
 		<section id="visual">
 			<h1>비주얼영역</h1>
 			<div class="wrap">
@@ -207,90 +34,12 @@
 				
 			</div>
 		</section>
-		<!-- /////////////////////////////////////////////////// -->
-		<!-- ///////main  ////////////////////////////////////// -->
-		<!-- /////////////////////////////////////////////////// -->
-		<main>
+		<section id="container">
 			<h1>메인컨텐츠</h1>
-			<div class="wrap view-size">
-				메인컨텐츠 실제내용
-			</div>
-		</main>
-		<!-- /////////////////////////////////////////////////// -->
-		<!-- ///////footer////////////////////////////////////// -->
-		<!-- /////////////////////////////////////////////////// -->
-		<footer>
-			<h1>하단영역</h1>
 			<div class="wrap">
-				<!-- /////푸터메뉴/////////////////////// -->			
-				<nav id="f-menu">
-					<h1>푸터메뉴</h1>
-					<div class="wrap view-size">
-						<ul class="flex">
-							<li><a href="#">오아시스 소개</a></li>
-							<li><a href="#">매장안내</a></li>
-							<li><a href="#">약관 및 정책</a></li>
-							<li class="privacy"><a href="#">개인정보 취급방침</a></li>
-							<li><a href="#">고객센터</a></li>
-							<li><a href="#">입점문의</a></li>
-							<li><a href="#">인재채용</a></li>
-						</ul>
-					</div>
-				</nav>
-				<!-- //////////////////////////// -->
-				<!-- /////회사정보&amp;고객센터/////////////////////// -->			
-				<section>
-					<h1>회사정보&amp;고객센터</h1>
-					<div class="wrap">
-						<!-- /////회사/////////////////////// -->
-						<section>
-							<h1>회사</h1>
-							<div class="wrap">
-								<!-- ///회사정보///////////////////////// -->
-								<section>
-									<h1>회사정보</h1>
-									<div class="wrap">
-										
-									</div>
-								</section>
-								<!-- //////////////////////////// -->
-								<!-- ///카피라이트///////////////////////// -->
-								<section>
-									<h1>카피라이트</h1>
-									<div class="wrap">
-										
-									</div>
-								</section>
-								<!-- //////////////////////////// -->
-							</div>
-						</section>
-						<!-- //////////////////////////// -->
-						<!-- ////고객센터//////////////////////// -->
-						<section>
-							<h1>고객센터</h1>
-							<div class="wrap">
-								<!-- ////전화번호//////////////////////// -->
-								<section>
-									<h1>전화번호</h1>
-									<div class="wrap">
-										
-									</div>
-								</section>
-								<!-- //////////////////////////// -->
-								<!-- ////SNS//////////////////////// -->
-								<section>
-									<h1>SNS</h1>
-									<div class="wrap">
-										
-									</div>
-								</section>
-								<!-- //////////////////////////// -->
-							</div>
-						</section>
-						<!-- //////////////////////////// -->
-					</div>
-				</section>
+				메인컨텐츠 영역입니다
 			</div>
-		</footer>
-	</body>
+		</section>
+	</div>
+</main>
 </html>

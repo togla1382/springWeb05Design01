@@ -12,5 +12,46 @@
 
 #f-menu>.wrap>ul>li.privacy a{
 	/* color: rgba(255,255,0, 1); */
-	color: #5b8145;
+	color: #2d7701;
+}
+
+#com-cus>.wrap{
+	padding: 40px 0 80px; /* 40px 0 80px 0 */
+	font-size: 13px;
+	color: #797979;
+}
+
+#com-cus>.wrap .tit{
+	color: #222;
+	font-size: 18px;
+	font-weight: 700;
+}
+#com-cus>.wrap .tit a{
+	color: #2d7701;
+	margin-left: 5px;
+	font-size: 17px;
+}
+#com-cus>.wrap .con{
+	margin-top: 16px;
+}
+#com-cus>.wrap .con dl dt::after {
+	content: ":";
+	margin: 0 2px;
+}
+#com-cus>.wrap .con dl dd{
+	margin-right: 10px;
+	color: #393939;
+}
+
+#copy>.wrap,
+#sns>.wrap{
+	padding-top: 20px;
+}
+
+#sns>.wrap ul li a{
+	padding-top: 20px;
+	width: 32px;
+	height: 32px;
+	display: block;
+	margin-right: 5px;
 }
