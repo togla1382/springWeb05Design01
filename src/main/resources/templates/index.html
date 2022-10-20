@@ -12,7 +12,7 @@
 <!-- /////////////////////////////////////////////////// -->
 <main>
 	<h1>메인컨텐츠</h1>
-	<div class="wrap view-size">
+	<div class="wrap">
 		<section id="visual">
 			<h1>비주얼영역</h1>
 			<div class="wrap">
@@ -36,8 +36,76 @@
 		</section>
 		<section id="container">
 			<h1>메인컨텐츠</h1>
-			<div class="wrap">
-				메인컨텐츠 영역입니다
+			<div class="wrap view-size">
+				<section id="today-sale">
+					<h1>오늘의 특가</h1>
+					<div class="wrap">
+						<p class="title">오늘의 특가</p>
+						<script type="text/javascript">
+							$(function(){
+								$(".tab-menu li").click(function(){
+									$(this).addClass("target");
+								});
+							});
+						</script>
+						<ul class="tab-menu flex center">
+							<li class="target">타임특가</li>
+							<li>한정특가</li>
+							<li>브랜드특가</li>
+						</ul>
+						<ul class="goods-kind-wrap">
+							<li class="goods-kind">
+								<!-- 타임특가 상품들 -->
+								<ol class="goods-list-wrap flex between">
+									<li class="goods-list" th:each="num : ${#numbers.sequence(1,4)}">
+										<div class="goods-img">
+											<a href="#">
+												<span>
+													<em>
+														<strong>24</strong>
+														<strong>50</strong>
+														<strong>18</strong>
+													</em>
+													<em>100개 구매중</em>
+												</span>
+											</a>
+										</div>
+										<div class="goods-info">
+											<ul>
+												<li><span>오아시스 배송</span><span>최저가 보상</span></li>
+												<li>상품명_[[${num}]]</li>
+												<li>
+													<span>38%</span>
+													<span>9,200</span>원
+													<span>14,900원</span>
+												</li>
+												<li>5.0(7)</li>
+											</ul>
+										</div>
+									</li>
+								</ol>
+							</li>
+							<li>
+								한정특가 상품들
+							</li>
+							<li>
+								브랜트특가 상품들
+							</li>
+						</ul>
+					</div>
+				</section>
+				<!-- /////////////////////////////////// -->
+				<!-- ////오!감동특가/////////////////////////////// -->
+				<!-- /////////////////////////////////// -->
+				<section>
+					<h1>오!감동특가</h1>
+					<div class="wrap">
+						<p class="title">오!감동특가</p>
+						<ul>
+							<li>목록을 넣어주세요</li>
+						</ul>
+					</div>
+				</section>
 			</div>
 		</section>
 	</div>
