@@ -42,56 +42,44 @@
 					<div class="wrap">
 						<p class="title">오늘의 특가</p>
 						<script type="text/javascript">
+							var saleKind=1;
 							$(function(){
-								$(".tab-menu li").click(function(){
+								saleGoodsLoading();
+								//var tabMenu=$(".tab-menu li");									
+								$(".tab-menu li").click(function(e){
+									$(".tab-menu li").removeClass("target");
 									$(this).addClass("target");
+									//서버로 요청
+									saleKind=$(this).val();
+									$.ajax({
+										url:"/goods/sale/"+saleKind,
+										//data:{kind: saleKind },
+										success:function(result){
+											$("#display").html(result);
+										}
+										//error:function(){}
+									});
 								});
 							});
+							
+							function saleGoodsLoading(){
+								$.ajax({
+									url:"/goods/sale/"+saleKind,
+									//data:{kind: saleKind },
+									success:function(result){
+										$("#display").html(result);
+									}
+								});
+							}
 						</script>
 						<ul class="tab-menu flex center">
-							<li class="target">타임특가</li>
-							<li>한정특가</li>
-							<li>브랜드특가</li>
+							<li class="target" value="1">타임특가</li>
+							<li value="2">한정특가</li>
+							<li value="3">브랜드특가</li>
 						</ul>
-						<ul class="goods-kind-wrap">
-							<li class="goods-kind">
-								<!-- 타임특가 상품들 -->
-								<ol class="goods-list-wrap flex between">
-									<li class="goods-list" th:each="num : ${#numbers.sequence(1,4)}">
-										<div class="goods-img">
-											<a href="#">
-												<span>
-													<em>
-														<strong>24</strong>
-														<strong>50</strong>
-														<strong>18</strong>
-													</em>
-													<em>100개 구매중</em>
-												</span>
-											</a>
-										</div>
-										<div class="goods-info">
-											<ul>
-												<li><span>오아시스 배송</span><span>최저가 보상</span></li>
-												<li>상품명_[[${num}]]</li>
-												<li>
-													<span>38%</span>
-													<span>9,200</span>원
-													<span>14,900원</span>
-												</li>
-												<li>5.0(7)</li>
-											</ul>
-										</div>
-									</li>
-								</ol>
-							</li>
-							<li>
-								한정특가 상품들
-							</li>
-							<li>
-								브랜트특가 상품들
-							</li>
-						</ul>
+						<div id="display">
+						<!-- 서버에서 불러온 상품들 -->
+						</div>
 					</div>
 				</section>
 				<!-- /////////////////////////////////// -->
