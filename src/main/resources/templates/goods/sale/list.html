@@ -1,6 +1,6 @@
 <html xmlns:th="http://www.thymeleaf.org" >
 <ol class="goods-list-wrap flex">
-	<li class="goods-list" th:each="num : ${#numbers.sequence(1,8)}">
+	<li class="goods-list" th:each="num : ${#numbers.sequence(1,15)}">
 		<div class="goods-img" >
 			<a href="#">
 				[[${num}]]
@@ -31,8 +31,50 @@
 		</div>
 	</li>
 </ol>
+<script type="text/javascript">
+var lis=$(".goods-list");
+var ea=4;//기본단위
+var moveLength=(282+24);//이미지1장+마진
+var tot=lis.length;//전체개수;
+var rightEa = tot-ea;//오른쪽 남은개수
+var leftEa=0;
+var position=0;
+
+function moveSaleGoods(){
+	ea=4;
+	if(rightEa <= ea){//남은개수가 4개이하 마직막이동
+		ea=rightEa;
+		$(".sale-next").hide();
+	}
+	position = position+(moveLength*ea*1);
+	$(".goods-list-wrap").animate({marginLeft: -position}, 1000);
+	
+	leftEa=leftEa+ea//왼쪽의 이미지개수
+	rightEa=rightEa-ea;
+	if(leftEa>0){
+		$(".sale-prev").show();
+	}
+}
+
+function pervSaleGoods(){
+	ea=4;
+	if(leftEa<=ea){
+		ea=leftEa;
+		$(".sale-prev").hide();
+	}
+	position = position+(moveLength*ea*-1);
+	$(".goods-list-wrap").animate({marginLeft: -position}, 1000);
+
+	leftEa=leftEa-ea//왼쪽의 이미지개수
+	rightEa=rightEa+ea;
+	if(leftEa>0){
+		$(".sale-next").show();
+	}
+}
+
+</script>
 <div class="btn">
-	<button class="prev"></button>
-	<button class="next"></button>
+	<button class="sale-prev" onclick="pervSaleGoods()"></button>
+	<button class="sale-next" onclick="moveSaleGoods();"></button>
 </div>
 </html>

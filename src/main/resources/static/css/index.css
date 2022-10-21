@@ -32,6 +32,9 @@
 	font-size: 18px;
 	color: #777;
 }
+#today-sale>.wrap .area{
+	position: relative;
+}
 #today-sale>.wrap #display{
 	overflow: hidden;
 }
@@ -72,15 +75,21 @@
 	padding: 12px 0;
 }
 #today-sale>.wrap #display>.btn button{
+	position: absolute;
+	top: calc( 282px / 2 - 20px);
 	width: 40px;
 	height: 40px;
 	border: 1px solid #d9d9d9;
 	border-radius: 50%;
 	box-shadow: 0 0 20px rgb(255, 255, 185);
+	background: no-repeat center / 50%;
 }
-#today-sale>.wrap #display>.btn .prev{
-	background: url("/images/icon/angle-left-solid.svg") no-repeat center / 50%;
+#today-sale>.wrap #display>.btn .sale-prev{
+	background-image: url("/images/icon/angle-left-solid.svg");
+	left: -20px;
+	display: none;
 }
-#today-sale>.wrap #display>.btn .next{
-	background: url("/images/icon/angle-right-solid.svg") no-repeat center / 50%;
+#today-sale>.wrap #display>.btn .sale-next{
+	background-image: url("/images/icon/angle-right-solid.svg");
+	right: -20px;
 }
