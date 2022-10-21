@@ -32,7 +32,15 @@
 	font-size: 18px;
 	color: #777;
 }
+#today-sale>.wrap #display{
+	overflow: hidden;
+}
+#today-sale>.wrap #display>ol>li.goods-list{
+	width: 282px;
+	margin-right: 24px;
+}
 #today-sale>.wrap #display>ol>li>div.goods-img>a{
+	position: relative;
 	display: block;
 	width: 282px;
 	height: 282px;
@@ -43,14 +51,14 @@
 	
 }
 #today-sale>.wrap #display>ol>li>div.goods-img>a span{
+	position: absolute;
 	display: flex;
 	justify-content: space-between;
 	padding: 0 1em;
 	width:100%;
 	height: 30px;
 	line-height: 30px;
-	position: relative;
-	top: calc(100% - 30px);
+	bottom: 0;
 	color:#fff;
 	background-color: rgba(47,91,3, 0.7);
 }
@@ -58,4 +66,21 @@
 	content: ":";
 	padding: 0 0.5em;
 	color: rgba(255,255,255, .5);
+}
+
+#today-sale>.wrap #display>ol>li>div.goods-info{
+	padding: 12px 0;
+}
+#today-sale>.wrap #display>.btn button{
+	width: 40px;
+	height: 40px;
+	border: 1px solid #d9d9d9;
+	border-radius: 50%;
+	box-shadow: 0 0 20px rgb(255, 255, 185);
+}
+#today-sale>.wrap #display>.btn .prev{
+	background: url("/images/icon/angle-left-solid.svg") no-repeat center / 50%;
+}
+#today-sale>.wrap #display>.btn .next{
+	background: url("/images/icon/angle-right-solid.svg") no-repeat center / 50%;
 }

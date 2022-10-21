@@ -1,8 +1,9 @@
 <html xmlns:th="http://www.thymeleaf.org" >
-<ol class="goods-list-wrap flex between">
-	<li class="goods-list" th:each="num : ${#numbers.sequence(1,4)}">
-		<div class="goods-img">
+<ol class="goods-list-wrap flex">
+	<li class="goods-list" th:each="num : ${#numbers.sequence(1,8)}">
+		<div class="goods-img" >
 			<a href="#">
+				[[${num}]]
 				<span>
 					<em>
 						<strong>24</strong>
@@ -15,16 +16,23 @@
 		</div>
 		<div class="goods-info">
 			<ul>
-				<li><span>오아시스 배송</span><span>최저가 보상</span></li>
-				<li>[[${list}]]_[[${num}]]</li>
 				<li>
-					<span>38%</span>
-					<span>9,200</span>원
-					<span>14,900원</span>
+					<span class="delivery-shop">쇼핑몰 배송</span>
+					<span class="delivery-lowest">최저가 보상</span>
 				</li>
-				<li>5.0(7)</li>
+				<li class="goods-name">[[${list}]]_[[${num}]]</li>
+				<li class="goods-price">
+					<span class="sale-rate">38%</span>
+					<span class="buying-price">9,200</span>원
+					<span class="selling-price">14,900원</span>
+				</li>
+				<li class="star-point">5.0(7)</li>
 			</ul>
 		</div>
 	</li>
 </ol>
+<div class="btn">
+	<button class="prev"></button>
+	<button class="next"></button>
+</div>
 </html>
