@@ -6,6 +6,7 @@
 	<link rel="stylesheet" href="/css/visual.css">
 	<link rel="stylesheet" href="/css/index.css">
 	<script src="/js/visual.js"></script>
+	<script src="/js/index.js"></script>
 </head>
 <!-- /////////////////////////////////////////////////// -->
 <!-- ///////main  ////////////////////////////////////// -->
@@ -41,33 +42,7 @@
 					<h1>오늘의 특가</h1>
 					<div class="wrap">
 						<p class="title">오늘의 특가</p>
-						<script type="text/javascript">
-							$(function(){
-								saleGoodsLoading();
-								//var tabMenu=$(".tab-menu li");									
-								$(".tab-menu li").click(tabMenuClicked);
-							});
-							
-							//메뉴가 클릭되면 실행되는 함수
-							function tabMenuClicked(){
-								$(".tab-menu li").removeClass("target");
-								$(this).addClass("target");
-								//서버로 요청
-								saleGoodsLoading();
-							}
-							
-							function saleGoodsLoading(){
-								var saleKind=$(".target").val();
-								
-								$.ajax({
-									url:"/goods/sale/"+saleKind,
-									//data:{kind: saleKind },
-									success:function(result){
-										$("#display").html(result);
-									}
-								});
-							}
-						</script>
+						
 						<ul class="tab-menu flex center">
 							<li class="target" value="1">타임특가</li>
 							<li value="2">한정특가</li>

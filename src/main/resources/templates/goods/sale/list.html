@@ -1,30 +1,30 @@
 <html xmlns:th="http://www.thymeleaf.org" >
-	<ol class="goods-list-wrap flex between">
-		<li class="goods-list" th:each="num : ${#numbers.sequence(1,4)}">
-			<div class="goods-img">
-				<a href="#">
-					<span>
-						<em>
-							<strong>24</strong>
-							<strong>50</strong>
-							<strong>18</strong>
-						</em>
-						<em>100개 구매중</em>
-					</span>
-				</a>
-			</div>
-			<div class="goods-info">
-				<ul>
-					<li><span>오아시스 배송</span><span>최저가 보상</span></li>
-					<li>[[${list}]]_[[${num}]]</li>
-					<li>
-						<span>38%</span>
-						<span>9,200</span>원
-						<span>14,900원</span>
-					</li>
-					<li>5.0(7)</li>
-				</ul>
-			</div>
-		</li>
-	</ol>
+<ol class="goods-list-wrap flex between">
+	<li class="goods-list" th:each="num : ${#numbers.sequence(1,4)}">
+		<div class="goods-img">
+			<a href="#">
+				<span>
+					<em>
+						<strong>24</strong>
+						<strong>50</strong>
+						<strong>18</strong>
+					</em>
+					<em>100개 구매중</em>
+				</span>
+			</a>
+		</div>
+		<div class="goods-info">
+			<ul>
+				<li><span>오아시스 배송</span><span>최저가 보상</span></li>
+				<li>[[${list}]]_[[${num}]]</li>
+				<li>
+					<span>38%</span>
+					<span>9,200</span>원
+					<span>14,900원</span>
+				</li>
+				<li>5.0(7)</li>
+			</ul>
+		</div>
+	</li>
+</ol>
 </html>
