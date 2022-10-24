@@ -1,0 +1,41 @@
+@charset "UTF-8";
+
+input:not([type=checkbox]), button{
+	width:100%;
+	padding: 1em 2em;
+}
+
+#login-form>.wrap form ul li:not(:first-child) {
+	margin-top: 10px;	
+}
+
+#login-form>.wrap form ul li.user-info-support .ch span a{
+	font-size: 14px;
+	color: #828282;
+}
+#login-form>.wrap form ul li.user-info-support .ch span:not(:last-child)::after{
+	content: "";
+	display: inline-block;
+	width: 0;
+	height: 10px;
+	border-left: 1px solid #a9a9a9;
+	margin: 0 5px;
+}
+
+#login-form>.wrap form ul li:last-of-type{
+	padding-top: 40px;
+}
+
+#chbox-idsave + label::before{
+	content:"";
+	display:inline-block;
+	width: 20px;
+	height:20px;
+	border-radius:50%;
+	background-image: url("/images/icon/img_order_checkW.png");
+	background-size:70%;
+	background-repeat: no-repeat;
+	background-position: center;
+	background-color: red;
+}
+

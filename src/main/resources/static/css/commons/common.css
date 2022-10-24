@@ -7,10 +7,29 @@
 .between{justify-content: space-between;}
 .around{justify-content: space-around;}
 
-
+.font-zero{
+	font-size: 0;
+}
 .view-size{
 	width: 1200px;
 	margin: 0 auto;
+}
+.view-size-m{
+	width: 450px;
+	margin: 0 auto;
+}
+.page-tit{
+    padding: 50px 0;
+    font-weight: 700;
+    font-size: 36px;
+    line-height: 42px;
+    text-align: center;
+}
+.btn-style-common{
+	background-color: #6ba543;
+	border-radius: 2px;
+	color: #fff;
+	font-weight: 700;
 }
 
 .btn-style1{

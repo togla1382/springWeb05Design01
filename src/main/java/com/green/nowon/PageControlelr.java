@@ -8,6 +8,11 @@ import org.springframework.web.servlet.ModelAndView;
 @Controller
 public class PageControlelr {
 	
+	@GetMapping("/signin")
+	public String login() {
+		return "sign/signin";
+	}
+	
 	@GetMapping("/page1.nhn")
 	public String page1() {
 		return "page1"; // classpath:/templates/page1.html
