@@ -22,8 +22,10 @@ function termsEachClicked(){
 	if($(this).prop("checked")){
 		//true일떄는 다른 checked도 모두true이면 
 		console.log("체크박스 ture일때 나머지 체크");
-		var tot=$(".terms :checkbox:not('#terms-all'").length;
-		var checkdTot=$(".terms :checkbox:not('#terms-all'):checked").length
+		//체크박스 전체개수
+		var tot=$(".terms :checkbox").not("#terms-all").length;
+		//체크된 체크박스개수
+		var checkdTot=$(".terms :checkbox:checked").not("#terms-all").length
 			
 		//나머지도 모두 true가 확인
 		if(tot==checkdTot){
