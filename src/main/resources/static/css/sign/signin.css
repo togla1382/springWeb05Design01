@@ -1,9 +1,5 @@
 @charset "UTF-8";
 
-input:not([type=checkbox]), button{
-	width:100%;
-	padding: 1em 2em;
-}
 
 #login-form>.wrap form ul li:not(:first-child) {
 	margin-top: 10px;	
@@ -62,6 +58,7 @@ input:not([type=checkbox]), button{
 	background-repeat: no-repeat;
 	background-position: center;
 	background-size: 50%;
+	margin-bottom: -5px;
 }
 #social>.wrap ul li:nth-child(1) a::before{
 	background-image: url("/images/icon/sns_kakao.png");

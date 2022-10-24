@@ -12,6 +12,10 @@ public class PageControlelr {
 	public String login() {
 		return "sign/signin";
 	}
+	@GetMapping("/signup")
+	public String signup() {
+		return "sign/signup";
+	}
 	
 	@GetMapping("/page1.nhn")
 	public String page1() {
