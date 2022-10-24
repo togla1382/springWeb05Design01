@@ -25,6 +25,15 @@
     line-height: 42px;
     text-align: center;
 }
+.box-style-common:focus{
+	border: 1px solid #6ba543;
+	outline: 1px solid #6ba543;;
+}
+.box-style-common{
+	border-radius: 2px;
+	padding: 1em 2em;
+	border: 1px solid #a9a9a9;
+}
 .btn-style-common{
 	background-color: #6ba543;
 	border-radius: 2px;
