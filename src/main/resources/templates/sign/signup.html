@@ -5,6 +5,9 @@
 <head>
 	<link rel="stylesheet" href="/css/sign/signup.css">
 	<script src="/js/terms.js"></script>
+	<!-- jQuery Modal -->
+<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery-modal/0.9.1/jquery.modal.min.js"></script>
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/jquery-modal/0.9.1/jquery.modal.min.css" />
 </head>
 <!-- /////////////////////////////////////////////////// -->
 <!-- ///////main  ////////////////////////////////////// -->
@@ -53,7 +56,7 @@
 								<li class="flex between">
 									<input type="checkbox" id="join-y">
 									<label for="join-y"><span>[필수] 만 14세 이상입니다.</span></label>
-									<a href="#">보기</a>
+									<a href="#ex1" rel="modal:open">보기</a>
 								</li>
 								<li class="flex between">
 									<input type="checkbox" id="financial-y">
@@ -126,6 +129,11 @@
 						</li>
 					</ul>
 				</form>
+				<div id="ex1" class="modal">
+				  <p>모달이 적용된 클래스</p>
+				  <p>[필수] 만 14세 이상입니다. 약관내용들.....을 들어가면 출력됩니다.</p>
+				  <a href="#" rel="modal:close">Close</a>
+				</div>
 			</div>
 		</section>
 		
