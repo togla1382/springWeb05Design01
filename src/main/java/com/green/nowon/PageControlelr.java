@@ -7,6 +7,15 @@ import org.springframework.web.servlet.ModelAndView;
 
 @Controller
 public class PageControlelr {
+	@GetMapping("/admin")
+	public String adminHome() {
+		return "admin/home";
+	}
+	
+	@GetMapping("/goods/write")
+	public String goodsWrite() {
+		return "goods/write";
+	}
 	
 	@GetMapping("/signin")
 	public String login() {

@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org" 
+th:replace="layout/layout-admin::adminLayout(~{this::head} , ~{this::main})" >
+<head>
+   <script type="text/javascript">
+  $(function(){
+	  $(".summernote").summernote();
+  });
+   </script>
+</head>
+   
+<main>
+	<h1>메인영역</h1>
+	<div class="wrap">
+		<section>
+			<h1></h1>
+			<div>
+				<p class="page-tit">상품등록 페이지</p>
+			</div>
+		</section>
+		<section>
+			<h1>상품등록</h1>
+			<div class="wrap">
+				<form>
+					<dl>
+						<dt><label>상품명</label></dt>
+						<dd><input type="text" ></dd>
+					</dl>
+					<dl>
+						<dt><label>가격</label></dt>
+						<dd><input type="text" ></dd>
+					</dl>
+					<dl>
+						<dt><label>재고</label></dt>
+						<dd><input type="text" ></dd>
+					</dl>
+					<dl>
+						<dt><label>상품이미지</label></dt>
+						<dd><input type="file" ></dd>
+					</dl>
+					<dl>
+						<dt><label>상세정보</label></dt>
+						<dd><textarea class="summernote" name="editordata"></textarea></dd>
+					</dl>
+				</form>
+			</div>
+		</section>
+	</div>
+</main>
+
+</html>
