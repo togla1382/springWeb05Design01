@@ -6,14 +6,16 @@ th:replace="layout/layout-admin::adminLayout(~{this::head} , ~{this::main})" >
    <script type="text/javascript">
   $(function(){
 	  $(".summernote").summernote();
-	  $("#file").change(fileChanged);
+	  $("input[type=file]").change(fileChanged);
 	  
   });
   
   function fileChanged(){
 	  var formData = new FormData();
-	  //console.log($("#file")[0].files[0]);
-	  formData.append("img", $("#file")[0].files[0]);
+	  var inputFile=$(this);
+	  var name=$(this).attr("name");
+	  console.log("name:"+name);
+	  formData.append("img", inputFile[0].files[0]);
 	  //* 
 	  $.ajax({
 		  url:"/goods/upload",
@@ -22,12 +24,21 @@ th:replace="layout/layout-admin::adminLayout(~{this::head} , ~{this::main})" >
 		  processData: false,
 		  data : formData,
 		  success:function(urlInfo){
-			  /* alert("비동기로 서버통신완료:"+ url); */
-			  $("#file-view").css("background-image", "url("+urlInfo +")" );
-			  $("#file-view + .btn-add").show();
+			  //console.log(filetag);
+			  // alert("비동기로 서버통신완료:"+ url); 
+			  inputFile.next().css("background-image", "url("+urlInfo +")" );
+			  if(name=="addImg"){
+			  	$(".btn-add").show();
+			  	var num=$(".add-file-wrap").length;//현재 file태그 개수
+				//console.log(num);
+				if(num>=3){
+					$(".btn-add").hide();
+				}
+			  }
+			  
 		  }
 	  });
-	  // */
+	  //*/
   }
   
    </script>
@@ -61,20 +72,40 @@ th:replace="layout/layout-admin::adminLayout(~{this::head} , ~{this::main})" >
 					<dl>
 						<dt>상품이미지</dt>
 						<dd>
-							<input type="file" name="img" id="file">
-							<label for="file" id="file-view">+</label>
+							<input type="file" name="mainImg" id="file">
+							<label for="file">+</label>
 						</dd>
 					</dl>
 					<dl>
-						<dt>추가이미지</dt>
-						<dd>
-							<input type="file" name="img" id="file-add">
-							<label for="file-add" id="file-view">+</label>
-							<button type="button" onclick="btnAddCliekec(this)" class="btn-add">추가</button>
+						<dt>추가이미지<i>3장 가능</i></dt>
+						<dd class="flex">
+							<div class="add-file-wrap">
+								<input type="file" name="addImg" id="file-add">
+								<label for="file-add" >+</label>
+							</div>
+							<button type="button" onclick="btnAddClieked(this)" class="btn-add">추가</button>
 						</dd>
+						<!-- 이 위치에 추가이미지가 태그(dd)가 삽입됩니다. -->
 					</dl>
+					
 					<script type="text/javascript">
-						
+						function btnAddClieked(btnel){
+							var btn=$(btnel);
+							var num=$(".add-file-wrap").length;//현재 file태그 개수
+							
+							var html=`
+								<!-- 동적태그 -->
+								<div class="add-file-wrap">
+									<input type="file" name="addImg" id="file-add-${num}" />
+									<label for="file-add-${num}" >+</label>
+								</div>
+							`;
+							//버튼태그 앞에 동적태그 삽입
+							btn.before(html);
+							$(".btn-add").hide();
+							$("input[type=file]").change(fileChanged);
+
+						}
 					</script>
 					<dl>
 						<dt><label>상세정보</label></dt>

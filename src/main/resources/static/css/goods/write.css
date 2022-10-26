@@ -16,6 +16,12 @@ input[type=file] + label{
 	background-color: rgba(120,240,120, 0.25);
 	border: 1px dashed #a9a9a9;
 }
-.btn-add{
-	display: none;
+.add-file-wrap{
+	margin-right: 10px;
+}
+.btn-add{display: none;}
+dl dt i {
+	color: red;
+	font-size: 10px;
+	margin-left: 10px;
 }
