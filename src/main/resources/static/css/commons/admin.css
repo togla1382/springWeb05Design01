@@ -55,3 +55,7 @@ header>.wrap ul>li dl>dd {
 header>.wrap ul>li dl>dd a{
 	color: rgba(255,255,255,0.5);
 }
+
+.page-tit{
+	text-align: left;
+}
