@@ -9,3 +9,13 @@ spring:
   thymeleaf:
     prefix: classpath:/templates/
     suffix: .html
+    
+    
+  jpa:
+    open-in-view: false
+  servlet:
+    multipart:
+      max-file-size: 5MB
+ 
+        
+        

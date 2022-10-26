@@ -2,10 +2,34 @@
 <html xmlns:th="http://www.thymeleaf.org" 
 th:replace="layout/layout-admin::adminLayout(~{this::head} , ~{this::main})" >
 <head>
+	<link rel="stylesheet" href="/css/goods/write.css">
    <script type="text/javascript">
   $(function(){
 	  $(".summernote").summernote();
+	  $("#file").change(fileChanged);
+	  
   });
+  
+  function fileChanged(){
+	  var formData = new FormData();
+	  //console.log($("#file")[0].files[0]);
+	  formData.append("img", $("#file")[0].files[0]);
+	  //* 
+	  $.ajax({
+		  url:"/goods/upload",
+		  type: "post",
+		  contentType: false,
+		  processData: false,
+		  data : formData,
+		  success:function(urlInfo){
+			  /* alert("비동기로 서버통신완료:"+ url); */
+			  $("#file-view").css("background-image", "url("+urlInfo +")" );
+			  $("#file-view + .btn-add").show();
+		  }
+	  });
+	  // */
+  }
+  
    </script>
 </head>
    
@@ -21,27 +45,44 @@ th:replace="layout/layout-admin::adminLayout(~{this::head} , ~{this::main})" >
 		<section>
 			<h1>상품등록</h1>
 			<div class="wrap">
-				<form>
+				<form action="/goods" method="post" enctype="multipart/form-data">
 					<dl>
 						<dt><label>상품명</label></dt>
-						<dd><input type="text" ></dd>
+						<dd><input type="text" name="goodsName" ></dd>
 					</dl>
 					<dl>
 						<dt><label>가격</label></dt>
-						<dd><input type="text" ></dd>
+						<dd><input type="text" name="price"></dd>
 					</dl>
 					<dl>
 						<dt><label>재고</label></dt>
-						<dd><input type="text" ></dd>
+						<dd><input type="text" name="stock"></dd>
 					</dl>
 					<dl>
-						<dt><label>상품이미지</label></dt>
-						<dd><input type="file" ></dd>
+						<dt>상품이미지</dt>
+						<dd>
+							<input type="file" name="img" id="file">
+							<label for="file" id="file-view">+</label>
+						</dd>
 					</dl>
+					<dl>
+						<dt>추가이미지</dt>
+						<dd>
+							<input type="file" name="img" id="file-add">
+							<label for="file-add" id="file-view">+</label>
+							<button type="button" onclick="btnAddCliekec(this)" class="btn-add">추가</button>
+						</dd>
+					</dl>
+					<script type="text/javascript">
+						
+					</script>
 					<dl>
 						<dt><label>상세정보</label></dt>
-						<dd><textarea class="summernote" name="editordata"></textarea></dd>
+						<dd><textarea class="summernote" name="content"></textarea></dd>
 					</dl>
+					<div>
+						<button>등록</button>
+					</div>
 				</form>
 			</div>
 		</section>

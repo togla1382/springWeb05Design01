@@ -1,0 +1,21 @@
+@charset "UTF-8";
+
+input[type=file]{
+	display: none;
+}
+input[type=file] + label{
+	width: 100px;
+	height: 100px;
+	background-repeat: no-repeat;
+	background-size: contain;
+	background-position: center;
+	text-align: center;
+	line-height: 100px;
+	font-size: 40px;
+	font-weight: 700;
+	background-color: rgba(120,240,120, 0.25);
+	border: 1px dashed #a9a9a9;
+}
+.btn-add{
+	display: none;
+}
