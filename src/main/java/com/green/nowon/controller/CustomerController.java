@@ -8,6 +8,11 @@ public class CustomerController {
 	
 	@GetMapping("/customers/home")
 	public String home() {
-		return "/customer/front";
+		return "customer/front";
+	}
+	
+	@GetMapping("/customers/faq/write")
+	public String FaqWrite() {
+		return "admin/customer/faq-write";
 	}
 }
