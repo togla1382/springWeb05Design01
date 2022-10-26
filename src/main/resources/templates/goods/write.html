@@ -3,45 +3,7 @@
 th:replace="layout/layout-admin::adminLayout(~{this::head} , ~{this::main})" >
 <head>
 	<link rel="stylesheet" href="/css/goods/write.css">
-   <script type="text/javascript">
-  $(function(){
-	  $(".summernote").summernote();
-	  $("input[type=file]").change(fileChanged);
-	  
-  });
-  
-  function fileChanged(){
-	  var formData = new FormData();
-	  var inputFile=$(this);
-	  var name=$(this).attr("name");
-	  console.log("name:"+name);
-	  formData.append("img", inputFile[0].files[0]);
-	  //* 
-	  $.ajax({
-		  url:"/goods/upload",
-		  type: "post",
-		  contentType: false,
-		  processData: false,
-		  data : formData,
-		  success:function(urlInfo){
-			  //console.log(filetag);
-			  // alert("비동기로 서버통신완료:"+ url); 
-			  inputFile.next().css("background-image", "url("+urlInfo +")" );
-			  if(name=="addImg"){
-			  	$(".btn-add").show();
-			  	var num=$(".add-file-wrap").length;//현재 file태그 개수
-				//console.log(num);
-				if(num>=3){
-					$(".btn-add").hide();
-				}
-			  }
-			  
-		  }
-	  });
-	  //*/
-  }
-  
-   </script>
+	<script src="/js/goods/write.js"></script>
 </head>
    
 <main>
@@ -72,7 +34,7 @@ th:replace="layout/layout-admin::adminLayout(~{this::head} , ~{this::main})" >
 					<dl>
 						<dt>상품이미지</dt>
 						<dd>
-							<input type="file" name="mainImg" id="file">
+							<input type="file" name="mainImg" id="file" onchange="fileChanged(this)">
 							<label for="file">+</label>
 						</dd>
 					</dl>
@@ -80,7 +42,7 @@ th:replace="layout/layout-admin::adminLayout(~{this::head} , ~{this::main})" >
 						<dt>추가이미지<i>3장 가능</i></dt>
 						<dd class="flex">
 							<div class="add-file-wrap">
-								<input type="file" name="addImg" id="file-add">
+								<input type="file" name="addImg" id="file-add" onchange="fileChanged(this)">
 								<label for="file-add" >+</label>
 							</div>
 							<button type="button" onclick="btnAddClieked(this)" class="btn-add">추가</button>
@@ -88,25 +50,6 @@ th:replace="layout/layout-admin::adminLayout(~{this::head} , ~{this::main})" >
 						<!-- 이 위치에 추가이미지가 태그(dd)가 삽입됩니다. -->
 					</dl>
 					
-					<script type="text/javascript">
-						function btnAddClieked(btnel){
-							var btn=$(btnel);
-							var num=$(".add-file-wrap").length;//현재 file태그 개수
-							
-							var html=`
-								<!-- 동적태그 -->
-								<div class="add-file-wrap">
-									<input type="file" name="addImg" id="file-add-${num}" />
-									<label for="file-add-${num}" >+</label>
-								</div>
-							`;
-							//버튼태그 앞에 동적태그 삽입
-							btn.before(html);
-							$(".btn-add").hide();
-							$("input[type=file]").change(fileChanged);
-
-						}
-					</script>
 					<dl>
 						<dt><label>상세정보</label></dt>
 						<dd><textarea class="summernote" name="content"></textarea></dd>
