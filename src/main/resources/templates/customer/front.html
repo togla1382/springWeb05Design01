@@ -30,6 +30,16 @@
 					</ul>
 				</div>
 				<div class="cus-list">
+					<ul>
+						<!-- dto : java의 FaqDTO dto 객체변수의 역할 --> 
+						<!-- dto : li 태그 안에서만 사용가능 ${dto.필드} 필드의 getter메서드 호출 -->
+						<li th:each="dto : ${list}">
+							<dl>
+								<dt class="question" th:text="${dto.question}"></dt>
+								<dd class="answer">[[${dto.answer}]]</dd>
+							</dl>
+						</li>
+					</ul>
 				</div>
 			</div>
 		</section>

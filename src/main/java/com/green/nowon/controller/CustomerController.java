@@ -2,6 +2,7 @@ package com.green.nowon.controller;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
+import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PostMapping;
 
@@ -16,8 +17,9 @@ public class CustomerController {
 	private CustomerService service;
 	
 	@GetMapping("/customers/home")
-	public String home() {
-		return "customer/front";
+	public String home(Model model) {
+		service.faqAll(model);
+		return  "customer/front";
 	}
 	
 	@GetMapping("/customers/faq/write")

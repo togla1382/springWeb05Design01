@@ -5,25 +5,38 @@
 	height: 190px;
 	text-align: center;
 	border: 1px solid #6ba543;
-	background: no-repeat center 50px /30%;
+	border-radius: 5px;
+	position: relative;
 	
 }
-#container>.wrap .cus-menu ul>li:nth-of-type(1){
+
+#container>.wrap .cus-menu ul>li::before{
+	content:"";
+	position: absolute;
+	top: 0;
+	left: 0;
+	width:100%;
+	height:100%;
+	background: no-repeat center 50px /30%;
+	/* opacity: 0.5; */
+	filter: opacity(0.5) drop-shadow(0 0 0 #6ba543);
+}
+#container>.wrap .cus-menu ul>li:nth-of-type(1)::before{
 	background-image: url("/images/icon/circle-question-regular.svg");
 }
-#container>.wrap .cus-menu ul>li:nth-of-type(2){
+#container>.wrap .cus-menu ul>li:nth-of-type(2)::before{
 	background-image: url("/images/icon/circle-user-regular.svg");
 }
-#container>.wrap .cus-menu ul>li:nth-of-type(3){
+#container>.wrap .cus-menu ul>li:nth-of-type(3)::before{
 	background-image: url("/images/icon/wallet-solid.svg");
 }
-#container>.wrap .cus-menu ul>li:nth-of-type(4){
+#container>.wrap .cus-menu ul>li:nth-of-type(4)::before{
 	background-image: url("/images/icon/truck-solid.svg");
 }
-#container>.wrap .cus-menu ul>li:nth-of-type(5){
+#container>.wrap .cus-menu ul>li:nth-of-type(5)::before{
 	background-image: url("/images/icon/comment-dollar-solid.svg");
 }
-#container>.wrap .cus-menu ul>li:nth-of-type(6){
+#container>.wrap .cus-menu ul>li:nth-of-type(6)::before{
 	background-image: url("/images/icon/file-circle-plus-solid.svg");
 }
 #container>.wrap .cus-menu ul>li span{
