@@ -8,6 +8,6 @@ public interface CustomerService {
 
 	String save(FaqDTO dto);
 
-	void faqAll(Model model);
+	void faqAll(Model model, int page);
 
 }

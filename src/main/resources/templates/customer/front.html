@@ -41,6 +41,29 @@
 						</li>
 					</ul>
 				</div>
+				<div class="pagging">
+					<ol class="flex center">
+						<li>
+							<a href="/customers/home?page=1">&lt;&lt;</a>
+						</li>
+						<!-- 이전 ne != -->
+						<li th:if="${pData.start ne 1}">
+							<a th:href="|/customers/home?page=${pData.start-1}|">&lt;</a>
+						</li>
+						<!-- ps~pe 반복-->
+						<li th:each="pageNo :${#numbers.sequence(pData.start , pData.end)}">
+							<a th:href="|/customers/home?page=${pageNo}|">[[${pageNo}]]</a>
+						</li>
+						<!-- 다음 -->
+						<li th:if="${pData.end lt pData.pageTotal}">
+							<a th:href="|/customers/home?page=${pData.end + 1}|">&gt;</a>
+						</li>
+						<!-- 마직막 -->
+						<li>
+							<a th:href="|/customers/home?page=${pData.pageTotal}|">&gt;&gt;</a>
+						</li>
+					</ol>
+				</div>
 			</div>
 		</section>
 	</div>
