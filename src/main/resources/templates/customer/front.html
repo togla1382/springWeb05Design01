@@ -2,18 +2,35 @@
 <html xmlns:th="http://www.thymeleaf.org"  
 	th:replace="~{layout/layout03 :: default(~{::head} , ~{::main})}" >
 <head>
-	
+	<link rel="stylesheet" href="/css/customer/front.css">
 </head>
 <!-- /////////////////////////////////////////////////// -->
 <!-- ///////main  ////////////////////////////////////// -->
 <!-- /////////////////////////////////////////////////// -->
 <main>
 	<h1>메인컨텐츠</h1>
-	<div class="wrap">
+	<div class="wrap view-size">
 		<section>
 			<h1>고객센터</h1>
 			<div>
-				<p class="page-tit">고객센터 페이지 입니다.</p>
+				<p class="page-tit">고객센터</p>
+			</div>
+		</section>
+		<section id="container">
+			<h1>faq 리스트</h1>
+			<div class="wrap">
+				<div class="cus-menu">
+					<ul class="flex between">
+						<li><span>쇼핑몰 이용문의</span></li>
+						<li><span>회원/정보</span></li>
+						<li><span>주문/결제</span></li>
+						<li><span>배송</span></li>
+						<li><span>취소/교환/반품</span></li>
+						<li><span>서비스/기타</span></li>
+					</ul>
+				</div>
+				<div class="cus-list">
+				</div>
 			</div>
 		</section>
 	</div>

@@ -1,0 +1,32 @@
+@charset "UTF-8";
+
+#container>.wrap .cus-menu ul>li{
+	width: 190px;
+	height: 190px;
+	text-align: center;
+	border: 1px solid #6ba543;
+	background: no-repeat center 50px /30%;
+	
+}
+#container>.wrap .cus-menu ul>li:nth-of-type(1){
+	background-image: url("/images/icon/circle-question-regular.svg");
+}
+#container>.wrap .cus-menu ul>li:nth-of-type(2){
+	background-image: url("/images/icon/circle-user-regular.svg");
+}
+#container>.wrap .cus-menu ul>li:nth-of-type(3){
+	background-image: url("/images/icon/wallet-solid.svg");
+}
+#container>.wrap .cus-menu ul>li:nth-of-type(4){
+	background-image: url("/images/icon/truck-solid.svg");
+}
+#container>.wrap .cus-menu ul>li:nth-of-type(5){
+	background-image: url("/images/icon/comment-dollar-solid.svg");
+}
+#container>.wrap .cus-menu ul>li:nth-of-type(6){
+	background-image: url("/images/icon/file-circle-plus-solid.svg");
+}
+#container>.wrap .cus-menu ul>li span{
+	position: relative;
+	top:115px;
+}

@@ -2,7 +2,6 @@
 <html xmlns:th="http://www.thymeleaf.org" 
 th:replace="layout/layout-admin::adminLayout(~{this::head} , ~{this::main})" >
 <head>
-   
 </head>
    
 <main>
@@ -13,7 +12,8 @@ th:replace="layout/layout-admin::adminLayout(~{this::head} , ~{this::main})" >
 			<p class="page-tit">FAQ 등록하기</p>
 		</div>	
 	</section>
-	<h1>FAQ 등록 폼</h1>
+	<section>
+		<h1>FAQ 등록 폼</h1>
 		<div class="wrap">
 			<form action="/admin/customers/faq" method="post">
 				<dl>
@@ -43,8 +43,6 @@ th:replace="layout/layout-admin::adminLayout(~{this::head} , ~{this::main})" >
 				</div>
 			</form>
 		</div>	
-	<section>
 	</section>
 </main>
-
 </html>
