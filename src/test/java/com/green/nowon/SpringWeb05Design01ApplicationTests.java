@@ -40,9 +40,9 @@ class SpringWeb05Design01ApplicationTests {
 		*/
 		
 		//java @since 1.8
-		IntStream.rangeClosed(1, 10000).forEach(i->{
+		IntStream.rangeClosed(1, 100).forEach(i->{
 			FaqDTO dto=FaqDTO.builder() //빌더클래스 생성
-					.division("delivery").question("질문-배송관련-"+i).answer("답변-배송관련-"+i)
+					.division("cancel").question("질문-취소/교환/반품 관련-"+i).answer("답변-취소/교환/반품 관련-"+i)
 					.build(); //FaqDTO객체생성
 			faqMapper.save(dto);
 		});

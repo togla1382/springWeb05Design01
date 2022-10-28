@@ -8,6 +8,7 @@ public class PageDTO {
 	private int pageTotal;
 	private int start;
 	private int end;
+	private int pLength;
 	
 	/**
 	 * 페이지 개수 : defaut 5 
@@ -33,6 +34,7 @@ public class PageDTO {
 	}
 	
 	private PageDTO(int page, int pageTotal, int pLength) {
+		this.pLength=pLength;
 		this.pageTotal=pageTotal;
 		int pGroup=page/pLength; 
 		// 1/5,2/5,3/5,4/5,5/5 == 1

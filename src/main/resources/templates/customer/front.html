@@ -5,10 +5,12 @@
 	<link rel="stylesheet" href="/css/customer/front.css">
 	<script src="/js/customer/front.js"  ></script>
 	<script th:inline="javascript">
-		
+		var pageNo;
+		var division;
 		$(function(){
-			var pageNo=(/*[[${param.page}]]*/null)?? 1 ;
-			var division=(/*[[${param.division}]]*/null)?? "use" ;
+			pageNo=(/*[[${param.page}]]*/null)?? 1 ;
+			division=(/*[[${param.division}]]*/null)?? "use" ;
+			var pLength=(/*[[${pData.pLength}]]*/null);
 			var menuList=$(".cus-menu ul>li");
 			for(var taget of menuList){
 				if($(taget).attr("value")==division){
@@ -19,7 +21,7 @@
 			//if(pageNo==null||pageNo=="") pageNo=1;
 			//console.log("pageNo = "+pageNo);
 			var pageList=$(".page-list>li");
-			pageList.eq((pageNo-1) % pageList.length ).addClass("select");
+			pageList.eq((pageNo-1) % pLength ).addClass("select");
 			
 			$(".cus-list ul>li").click(listClicked);
 			$(".cus-menu ul>li").click(menuClicked);
@@ -33,7 +35,10 @@
 			$(".cus-list ul>li").not(this).find(".answer").slideUp();
 			$(this).find(".answer").slideToggle();
 		}
-		
+		function pageNoClicked(targetNo){
+			//alert(pageNo+":"+division);
+			location.href="/customers/home?division="+division+"&page="+targetNo;
+		}
 	</script>
 </head>
 <!-- /////////////////////////////////////////////////// -->
@@ -72,32 +77,38 @@
 								<dd class="answer">[[${dto.answer}]]</dd>
 							</dl>
 						</li>
+						<li th:if="${#lists.isEmpty(list)}" style="text-align: center;">조회 결과가 존재하지 않습니다.</li>
 					</ul>
 				</div>
-				<div class="pagging flex center">
+				<div th:if="${!#lists.isEmpty(list)}" class="pagging flex center">
 					<ol class="flex">
 						<li>
-							<a href="/customers/home?page=1">&lt;&lt;</a>
+							<!-- <a href="/customers/home?page=1">&lt;&lt;</a> -->
+							<a href="javascript:pageNoClicked(1)">&lt;&lt;</a>
 						</li>
 						<!-- 이전 ne != -->
 						<li th:if="${pData.start ne 1}">
-							<a th:href="|/customers/home?page=${pData.start-1}|">&lt;</a>
+							<!-- <a th:href="|/customers/home?page=${pData.start-1}|">&lt;</a> -->
+							<a th:href="|javascript:pageNoClicked(${pData.start-1})|">&lt;</a>
 						</li>
 					</ol>
 					<ol class="page-list flex ">
 						<!-- ps~pe 반복-->
 						<li th:each="pageNo :${#numbers.sequence(pData.start , pData.end)}">
-							<a th:href="|/customers/home?page=${pageNo}|">[[${pageNo}]]</a>
+							<!-- <a th:href="|/customers/home?page=${pageNo}|">[[${pageNo}]]</a> -->
+							<a th:href="|javascript:pageNoClicked(${pageNo})|">[[${pageNo}]]</a>
 						</li>
 					</ol>
 					<ol class="flex">
 						<!-- 다음 -->
 						<li th:if="${pData.end lt pData.pageTotal}">
-							<a th:href="|/customers/home?page=${pData.end + 1}|">&gt;</a>
+							<!-- <a th:href="|/customers/home?page=${pData.end + 1}|">&gt;</a> -->
+							<a th:href="|javascript:pageNoClicked(${pData.end + 1})|">&gt;</a>
 						</li>
 						<!-- 마직막 -->
 						<li>
-							<a th:href="|/customers/home?page=${pData.pageTotal}|">&gt;&gt;</a>
+							<!-- <a th:href="|/customers/home?page=${pData.pageTotal}|">&gt;&gt;</a> -->
+							<a th:href="|javascript:pageNoClicked(${pData.pageTotal})|">&gt;&gt;</a>
 						</li>
 					</ol>
 				</div>
