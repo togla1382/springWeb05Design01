@@ -27,7 +27,7 @@ public class CustomerServiceProcess implements CustomerService {
 	}
 
 	@Override
-	public void faqAll(Model model, int page) {
+	public void faqAll(Model model, int page, String division) {
 		//if page=1 int from=1, int to=10;
 		//if page=2 int from=11, int to=20;
 		int length=10;//페이지당 보여줄 개수		
@@ -36,7 +36,7 @@ public class CustomerServiceProcess implements CustomerService {
 		
 		//페이지계산
 		//총 게시글수
-		int tot=mapper.countAll();
+		int tot=mapper.countAllByDivision(division);
 		System.out.println("faq의 총 개수 : "+tot);
 		
 		int pageTotal=tot/length; //총페이지 수
@@ -44,12 +44,12 @@ public class CustomerServiceProcess implements CustomerService {
 			pageTotal++;
 		}
 		
-		PageDTO pageDTO=new PageDTO(page, pageTotal, 8);
+		//PageDTO pageDTO=new PageDTO(page, pageTotal, 8);
 		
 		
 		System.out.println("총페이지수 : "+pageTotal);// 2001
-		model.addAttribute("list", mapper.faqAll(from, to));
-		model.addAttribute("pData", pageDTO);
+		model.addAttribute("list", mapper.faqAllByDivision(from, to, division));
+		model.addAttribute("pData", PageDTO.getInstance(page, pageTotal, 8) );
 		
 		
 	}

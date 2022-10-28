@@ -3,6 +3,38 @@
 	th:replace="~{layout/layout03 :: default(~{::head} , ~{::main})}" >
 <head>
 	<link rel="stylesheet" href="/css/customer/front.css">
+	<script src="/js/customer/front.js"  ></script>
+	<script th:inline="javascript">
+		
+		$(function(){
+			var pageNo=(/*[[${param.page}]]*/null)?? 1 ;
+			var division=(/*[[${param.division}]]*/null)?? "use" ;
+			var menuList=$(".cus-menu ul>li");
+			for(var taget of menuList){
+				if($(taget).attr("value")==division){
+					$(taget).addClass("target");
+				}
+			}
+			//var pageNo=/*[[${param.page}]]*/"";
+			//if(pageNo==null||pageNo=="") pageNo=1;
+			//console.log("pageNo = "+pageNo);
+			var pageList=$(".page-list>li");
+			pageList.eq((pageNo-1) % pageList.length ).addClass("select");
+			
+			$(".cus-list ul>li").click(listClicked);
+			$(".cus-menu ul>li").click(menuClicked);
+			
+		});
+		function menuClicked(){
+			//console.log("menu : "+$(this).attr("value"));
+			location.href="/customers/home?division="+$(this).attr("value");
+		}
+		function listClicked(){
+			$(".cus-list ul>li").not(this).find(".answer").slideUp();
+			$(this).find(".answer").slideToggle();
+		}
+		
+	</script>
 </head>
 <!-- /////////////////////////////////////////////////// -->
 <!-- ///////main  ////////////////////////////////////// -->
@@ -21,18 +53,19 @@
 			<div class="wrap">
 				<div class="cus-menu">
 					<ul class="flex between">
-						<li><span>쇼핑몰 이용문의</span></li>
-						<li><span>회원/정보</span></li>
-						<li><span>주문/결제</span></li>
-						<li><span>배송</span></li>
-						<li><span>취소/교환/반품</span></li>
-						<li><span>서비스/기타</span></li>
+						<li value="use"><span>쇼핑몰 이용문의</span></li>
+						<li value="member" ><span>회원/정보</span></li>
+						<li value="order"><span>주문/결제</span></li>
+						<li value="delivery"><span>배송</span></li>
+						<li value="cancel"><span>취소/교환/반품</span></li>
+						<li value="service"><span>서비스/기타</span></li>
 					</ul>
 				</div>
 				<div class="cus-list">
 					<ul>
 						<!-- dto : java의 FaqDTO dto 객체변수의 역할 --> 
 						<!-- dto : li 태그 안에서만 사용가능 ${dto.필드} 필드의 getter메서드 호출 -->
+						<!--/* <dd class="answer">[[${dto.answer}]]</dd> */-->
 						<li th:each="dto : ${list}">
 							<dl>
 								<dt class="question" th:text="${dto.question}"></dt>
@@ -41,8 +74,8 @@
 						</li>
 					</ul>
 				</div>
-				<div class="pagging">
-					<ol class="flex center">
+				<div class="pagging flex center">
+					<ol class="flex">
 						<li>
 							<a href="/customers/home?page=1">&lt;&lt;</a>
 						</li>
@@ -50,10 +83,14 @@
 						<li th:if="${pData.start ne 1}">
 							<a th:href="|/customers/home?page=${pData.start-1}|">&lt;</a>
 						</li>
+					</ol>
+					<ol class="page-list flex ">
 						<!-- ps~pe 반복-->
 						<li th:each="pageNo :${#numbers.sequence(pData.start , pData.end)}">
 							<a th:href="|/customers/home?page=${pageNo}|">[[${pageNo}]]</a>
 						</li>
+					</ol>
+					<ol class="flex">
 						<!-- 다음 -->
 						<li th:if="${pData.end lt pData.pageTotal}">
 							<a th:href="|/customers/home?page=${pData.end + 1}|">&gt;</a>

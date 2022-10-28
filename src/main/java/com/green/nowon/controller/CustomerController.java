@@ -20,7 +20,9 @@ public class CustomerController {
 	private CustomerService service;
 	
 	@GetMapping("/customers/home")
-	public String home(Model model, int page /*,HttpServletRequest request*/) {
+	public String home(Model model
+			,@RequestParam(defaultValue = "use") String division
+			,@RequestParam(defaultValue = "1") int page /*,HttpServletRequest request*/) {
 		/*
 		 * 스프링에서는 파라미터 매핑을 지원하므로 불편하게 쓸 이유가 없어요
 		String _from=request.getParameter("from");
@@ -32,7 +34,7 @@ public class CustomerController {
 		//System.out.println("to: "+to);
 		
 		//service.faqAll(model, from, to);
-		service.faqAll(model, page);
+		service.faqAll(model, page, division);
 		return  "customer/front";
 	}
 	

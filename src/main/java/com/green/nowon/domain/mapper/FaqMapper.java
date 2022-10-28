@@ -19,10 +19,24 @@ public interface FaqMapper {
 	@Select("select * from (select rownum rnum,f.* from "
 			+ " (select * from faq order by faq_no) f) "
 			+ "where rnum between #{from} and #{to}")
-	List<FaqDTO> faqAll(@Param("from") int from,@Param("to") int to);
+	List<FaqDTO> faqAll(
+			@Param("from") int from,
+			@Param("to") int to);
+	
+	@Select("select * from (select rownum rnum,f.* from "
+			+ " (select * from faq where division=#{division} order by faq_no) f) "
+			+ "where rnum between #{from} and #{to}")
+	List<FaqDTO> faqAllByDivision(
+			@Param("from") int from,
+			@Param("to") int to, 
+			@Param("division") String division);
 
 	@Select("select count(*) from faq")
 	int countAll();
+
+	@Select("select count(*) from faq where division=#{division}")
+	int countAllByDivision(@Param("division") String division);
+
 
 	
 

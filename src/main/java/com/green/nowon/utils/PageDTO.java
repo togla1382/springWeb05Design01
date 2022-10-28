@@ -14,8 +14,8 @@ public class PageDTO {
 	 * @param page 페이지번호
 	 * @param pageTotal 총 페이지수
 	 */
-	public PageDTO(int page, int pageTotal) {
-		this(page, pageTotal, 5);
+	public static PageDTO getInstance(int page, int pageTotal) {
+		return new PageDTO(page, pageTotal);
 	}
 	
 	/**
@@ -24,7 +24,15 @@ public class PageDTO {
 	 * @param pageTotal 총 페이지수
 	 * @param pLength 보여지는 페이지 번호 개수 숫자로 입력
 	 */
-	public PageDTO(int page, int pageTotal, int pLength) {
+	public static PageDTO getInstance(int page, int pageTotal, int pLength) {
+		return new PageDTO(page, pageTotal, pLength);
+	}
+	
+	private PageDTO(int page, int pageTotal) {
+		this(page, pageTotal, 5);
+	}
+	
+	private PageDTO(int page, int pageTotal, int pLength) {
 		this.pageTotal=pageTotal;
 		int pGroup=page/pLength; 
 		// 1/5,2/5,3/5,4/5,5/5 == 1

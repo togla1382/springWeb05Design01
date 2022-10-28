@@ -19,7 +19,9 @@ class SpringWeb05Design01ApplicationTests {
 	@Autowired
 	FaqMapper faqMapper;
 	
-	
+	@Test
+	void contextLoads() {
+	}
 	//@Test
 	void faq더미테스트() {
 		log.debug(">>>faqMapper:"+faqMapper);
