@@ -27,4 +27,8 @@ logging:
     com:
       green:
         nowon: debug        
-        
+
+
+mysetting:
+  page:
+    limit: 5        

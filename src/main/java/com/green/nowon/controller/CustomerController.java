@@ -34,7 +34,12 @@ public class CustomerController {
 		//System.out.println("to: "+to);
 		
 		//service.faqAll(model, from, to);
-		service.faqAll(model, page, division);
+		
+		//서브쿼리 사용버전
+		//service.faqAll(model, page, division);
+		
+		//RowBounds 사용버번
+		service.faqList(model, page, division);
 		return  "customer/front";
 	}
 	

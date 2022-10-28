@@ -10,4 +10,6 @@ public interface CustomerService {
 
 	void faqAll(Model model, int page, String division);
 
+	void faqList(Model model, int page, String division);
+
 }

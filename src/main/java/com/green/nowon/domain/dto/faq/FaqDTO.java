@@ -4,9 +4,11 @@ import lombok.AllArgsConstructor;
 import lombok.Builder;
 import lombok.Getter;
 import lombok.Setter;
+import lombok.ToString;
 
 //@Builder// args 존재하는 생성자와 함께쓸수 있어요 : 빌터패턴을 통해서 객체 생성을 지원합니다.
 //@AllArgsConstructor
+@ToString
 @Getter
 @Setter
 public class FaqDTO {
