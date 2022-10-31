@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<ul>
+	<li th:each="dto : ${list}">
+		<dl>
+			<dt class="question" th:text="${dto.question}">질문정보가 삽입됩니다.</dt>
+			<dd class="answer">[[${dto.answer}]]</dd>
+		</dl>
+	</li>
+	<li th:if="${#lists.isEmpty(list)}" style="text-align: center;">조회 결과가 존재하지 않습니다.</li>
+</ul>
+<!-- 페이징정보 시작 -->
+<div th:if="${!#lists.isEmpty(list)}" class="pagging flex center">
+	<ol class="flex">
+		<li>
+			<a href="#">&lt;&lt;</a>
+		</li>
+		<!-- 이전 ne != -->
+		<li th:if="${pi.start ne 1}">
+			<a href="#">&lt;</a>
+		</li>
+	</ol>
+	<ol class="page-list flex ">
+		<!-- ps~pe 반복-->
+		<li th:each="pageNo :${#numbers.sequence(pi.start , pi.end)}">
+			<a href="#">[[${pageNo}]]</a>
+		</li>
+	</ol>
+	<ol class="flex">
+		<!-- 다음 -->
+		<li th:if="${pi.end lt pi.pageTotal}">
+			<a href="#">&gt;</a>
+		</li>
+		<!-- 마직막 -->
+		<li>
+			<a href="#">&gt;&gt;</a>
+		</li>
+	</ol>
+</div>
+<!-- 페이징정보 마지막 -->
+</html>

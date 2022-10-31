@@ -29,6 +29,13 @@ public class PageDTO {
 		return new PageDTO(page, rowTotal, pLength);
 	}
 	
+	/**
+	 * 
+	 * @param page 페이지번호
+	 * @param rowTot 총 게시글 수
+	 * @param limit 한페이지에 보여지는 게시글 수 
+	 * @param pLength 보여지는 페이지 번호 개수 숫자로 입력
+	 */
 	public static PageDTO getInstance(int page, int rowTot, int limit, int pLength) {
 		return new PageDTO(page, rowTot, limit, pLength);
 	}
