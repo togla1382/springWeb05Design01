@@ -51,7 +51,7 @@ public class FaqServiceProcess implements FaqService {
 		//리스트정보
 		List<FaqDTO> result=faqMapper.findAllByDivisionAndRowBounds(division, rowBounds);
 		//페이지정보
-		PageDTO pageInfo=PageDTO.getInstance(page, rowTotal, limit, 8);
+		PageDTO pageInfo=PageDTO.getInstance(page, rowTotal, limit, 5);
 		mv.addObject("list", result);
 		mv.addObject("pi", pageInfo);
 		

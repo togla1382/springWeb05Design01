@@ -3,7 +3,7 @@
 <ul>
 	<li th:each="dto : ${list}">
 		<dl>
-			<dt class="question" th:text="${dto.question}">질문정보가 삽입됩니다.</dt>
+			<dt class="question" th:text="${dto.question}" onclick="questionClicked(this)">질문정보가 삽입됩니다.</dt>
 			<dd class="answer">[[${dto.answer}]]</dd>
 		</dl>
 	</li>
@@ -13,29 +13,30 @@
 <div th:if="${!#lists.isEmpty(list)}" class="pagging flex center">
 	<ol class="flex">
 		<li>
-			<a href="#">&lt;&lt;</a>
+			<a href="javascript:pageClicked(1)">&lt;&lt;</a>
 		</li>
 		<!-- 이전 ne != -->
 		<li th:if="${pi.start ne 1}">
-			<a href="#">&lt;</a>
+			<a th:href="|javascript:pageClicked(${pi.start - 1})|">&lt;</a>
 		</li>
 	</ol>
 	<ol class="page-list flex ">
 		<!-- ps~pe 반복-->
 		<li th:each="pageNo :${#numbers.sequence(pi.start , pi.end)}">
-			<a href="#">[[${pageNo}]]</a>
+			<a th:href="|javascript:pageClicked(${pageNo})|">[[${pageNo}]]</a>
 		</li>
 	</ol>
 	<ol class="flex">
 		<!-- 다음 -->
 		<li th:if="${pi.end lt pi.pageTotal}">
-			<a href="#">&gt;</a>
+			<a th:href="|javascript:pageClicked(${pi.end + 1})|">&gt;</a>
 		</li>
 		<!-- 마직막 -->
 		<li>
-			<a href="#">&gt;&gt;</a>
+			<a th:href="|javascript:pageClicked(${pi.pageTotal})|">&gt;&gt;</a>
 		</li>
 	</ol>
+	<input type="hidden" id="p-length" th:value="${pi.pLength}">
 </div>
 <!-- 페이징정보 마지막 -->
 </html>

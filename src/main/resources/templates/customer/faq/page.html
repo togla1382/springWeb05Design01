@@ -4,18 +4,48 @@
 <head>
 	<link rel="stylesheet" href="/css/customer/front.css">
 	<script type="text/javascript">
+		var division="use";
+		var page=1;
 		$(function(){
-			getList("use");
+			$(".cus-menu ul>li").eq(0).addClass("target");
+			$(".cus-menu ul>li").click(menuClicked);
+			
+			getList();
+			
 		});
 		
-		function getList(division){
+		function questionClicked(questionEl){
+			
+			//this를 제외한 모든 .question의 다음요소(.answer)를 슬라이드업(열림->닫음) 
+			$(".question").not(questionEl).next().slideUp();
+			//this 다음 요소(.answer)를 토글(열림->닫음, 닫음->열림)
+			$(questionEl).next().slideToggle();
+		}
+		
+		function menuClicked(){
+			$(".cus-menu ul>li").removeClass("target");
+			$(this).addClass("target");
+			division=$(this).attr("value");
+			page=1;
+			getList();
+		}
+		
+		function getList(){
+			
 			$.ajax({
-				url:`/customers/${division}/1`,
+				url:`/customers/${division}/${page}`,
 				type:"get",
 				success:function(resultHtml){
 					$(".cus-list").html(resultHtml);
+					var len=$("#p-length").val();
+					$(".page-list li").eq( (page-1) % len ).addClass("select");
 				}
 			});
+		}
+		
+		function pageClicked(pageNo){
+			page=pageNo;
+			getList();
 		}
 		
 		
